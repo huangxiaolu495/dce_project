@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="author" content="zts ued team" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>主页</title>
+  <link rel="stylesheet" href="./css/home.css">
+</head>
+
+<body>
+  <div class="c">
+    <div class="head">
+      <div>
+        <input id="number" type="text" placeholder="请输入查询号码" class="number_input" />
+      </div>
+      <div class="pad_sel">
+        <select class="sel_height" id="select">
+          <option value="客户号">客户号</option>
+          <option value="关联组号">关联组号</option>
+          <option value="实控组号">实控组号</option>
+        </select>
+      </div>
+      <div>
+        <input type="button" value="查询" class="btn" id="btn" />
+      </div>
+      <div style="display: none" id="errormsg" class="er_msg">*请输入查询号码！</div>
+    </div>
+    <div class="center">
+      <div class="">
+        <div class="m-left20 m-top20">客户组虚假申报预警</div>
+        <div class="bb-s">
+          <span class="tt">约定交易:</span>
+          <div class="mt20" id="ydjy">
+          </div>
+        </div>
+        <div class="bb-s">
+          <span class="tt">虚假申报:</span>
+          <div class="mt20" id="xjsb">
+          </div>
+        </div>
+        <div class="bb-s">
+          <span class="tt">疑似关联组45:</span>
+          <div class="mt20" id="ysgl45">
+          </div>
+          <span class="tt">疑似关联组56:</span>
+          <div class="mt20" id="ysgl56">
+          </div>
+        </div>
+        <div class="m-left20 m-top20">关联组虚假申报预警</div>
+        <div class="bb">
+          <span class="tt">关联组号:</span>
+          <div class="mt20" id="gl">
+          </div>
+        </div>
+        <div class="m-left20 m-top20">实控组虚假申报预警</div>
+        <div class="bb">
+          <span class="tt">实控组号:</span>
+          <div class="mt20" id="sk">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script type="text/javascript" src="./js/core/jquery-1.10.js"></script>
+  <script type="text/javascript" src="./js/core/jquery.easing.1.3.js"></script>
+  <script type="text/javascript" src="./js/core/jquery.mousewheel.min.js"></script>
+  <script type="text/javascript" src="./js/common/fx.common.js"></script>
+  <script type="text/javascript" src="./js/common/fx.font.js"></script>
+  <script type="text/javascript" src="./js/common/ui/fx.scroll.js"></script>
+  <script type="text/javascript" src="./js/common/ui/fx.drag.js"></script>
+  <script type="text/javascript" src="./js/common/ui/fx.dialog.js"></script>
+  <script type="text/javascript" src="./js/core/jquery-editable-select.min.js"></script>
+  <script type="text/javascript" src="./js/core/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="./js/core/selectpage.min.js"></script>
+  <script type="text/javascript" src="./js/core/b.selectpage.js"></script>
+  <script type="text/javascript" src="./js/common/template-web.js"></script>
+  <script src="./js/common/paging.js"></script>
+  <script type="text/javascript" src="./js/home.js"></script>
+</body>
+
+</html>

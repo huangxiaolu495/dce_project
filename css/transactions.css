@@ -1,0 +1,7 @@
+.tdiv {
+  display: inline-block;
+}
+
+.tdiv div {
+  display: inline-block;
+}

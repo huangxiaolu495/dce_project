@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>实控组号</title>
+  <link rel="stylesheet" href="./css/page1.css">
+  <link rel="stylesheet" href="./css/ag_cloud.css">
+</head>
+
+<body>
+  <div class="c">
+    <div class="head">
+      <div class="head-t">实控组号</div>
+      <div class="border"></div>
+    </div>
+    <div class="center">
+      <div class="right">
+        <div class="i-re">
+          <img src="./img/user.png" alt="" class="i-ab">
+        </div>
+        <div class="user-n username-three" id="username">
+        </div>
+        <div class="user-n" id="more" style="color:blue;display: none;">更多</div>
+        <div id="chart" style="width:500px;height:450px;"></div>
+        <div class="u-text">
+          <div class="u-text-div">
+            <span class="tooltip-title" id="title-one" style="color:blue">违规交易</span>
+            <div id="tooltip-msg" style="display:none">
+              <img src="./img/tooltip2.svg" alt="" class="svg">
+              <div class="tooltip-content">
+              </div>
+            </div>
+          </div>
+          <div class="u-text-div">
+            <span class="tooltip-title" id="title-two" style="color:blue">词云</span>
+            <div id="main" class="cloud"></div>
+          </div>
+          <div class="u-text-div">
+            <span class="tooltip-title" id="title-three" style="color:blue">股权关系</span>
+            <div class="width:500px;hieght:500px" id="gxchart"></div>
+          </div>
+        </div>
+      </div>
+      <div class="left">
+        <div class="calendar">
+          <div>
+            开始时间：
+            <input type="text" class="text w1 calendar_input" id="month_start" readonly="readonly" />
+          </div>
+          <div>
+            结束时间：
+            <input type="text" class="text w1 calendar_input" id="month_stop" readonly="readonly" />
+          </div>
+          <div>
+            <input type="button" value="查询" class="btn-big" id="time-btn" />
+          </div>
+        </div>
+        <div class="sel-ri">
+          <div class="fs">成交量:</div>
+          <div>
+            <select class="sel_height" id="contract_type_name_match">
+            </select>
+          </div>
+          <div>
+            <select class="sel_height" id="contract_id_match">
+            </select>
+          </div>
+          <div>
+            <input type="button" value="查询" class="btn" id="btn" />
+          </div>
+        </div>
+        <div>
+          <div id="container" style="width:890px;height:350px;margin-left:32px"></div>
+        </div>
+        <div class="sel-ri">
+          <div class="fs">日持仓（多/空）:</div>
+          <div>
+            <select class="sel_height" id="contract_type_name_hold">
+            </select>
+          </div>
+          <div>
+            <select class="sel_height" id="contract_id_hold">
+            </select>
+          </div>
+          <div>
+            <input type="button" value="查询" class="btn" id="btn2" />
+          </div>
+        </div>
+
+        <div>
+          <div id="container2" style="width:1000px;height:380px;"></div>
+        </div>
+        <div class="sel-ri">
+          <div class="fs">账户盈亏:</div>
+          <div>
+            <select class="sel_height" id="contract_type_name_match2">
+            </select>
+          </div>
+          <div>
+            <select class="sel_height" id="contract_id_match2">
+            </select>
+          </div>
+          <div>
+            <input type="button" value="查询" class="btn" id="btn3" />
+          </div>
+        </div>
+
+        <div>
+          <div id="container3" style="width:1000px;height:380px;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="bot-right">
+        <div class="p-top20">成交量情况</div>
+        <div id="cjl">
+          <i-table height="180" :columns="columns1" :data="data1">
+          </i-table>
+        </div>
+      </div>
+      <div class="bot-left">
+        <div class="p-top20">委托量情况</div>
+        <div id="wtl">
+          <i-table height="180" :columns="columns2" :data="data2"></i-table>
+        </div>
+      </div>
+      <div class="bot-bottom">
+        <div class="p-top20">持仓量情况</div>
+        <div id="ccl">
+          <i-table height="250" :columns="columns3" :data="data3"></i-table>
+        </div>
+      </div>
+      <div style="height:100px;"></div>
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript" src="./js/core/jquery-1.10.js"></script>
+  <script type="text/javascript" src="./js/core/jquery.easing.1.3.js"></script>
+  <script type="text/javascript" src="./js/core/jquery.mousewheel.min.js"></script>
+  <script type="text/javascript" src="./js/common/fx.common.js"></script>
+  <script type="text/javascript" src="./js/common/fx.font.js"></script>
+  <script type="text/javascript" src="./js/common/ui/fx.scroll.js"></script>
+  <script type="text/javascript" src="./js/common/ui/fx.drag.js"></script>
+  <script type="text/javascript" src="./js/common/ui/fx.dialog.js"></script>
+  <script type="text/javascript" src="./js/core/jquery-editable-select.min.js"></script>
+  <script type="text/javascript" src="./js/core/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="./js/core/selectpage.min.js"></script>
+  <script type="text/javascript" src="./js/core/b.selectpage.js"></script>
+  <script type="text/javascript" src="./js/common/template-web.js"></script>
+  <script src="./js/common/paging.js"></script>
+  <script type="text/javascript" src='./js/common/echarts.js'></script>
+  <script type="text/javascript" src='./js/common/ui/fx.calendar.2.0.0.js'></script>
+  <script type="text/javascript" src="./js/calendar.js"></script>
+  <script type="text/javascript" src="./js/page3.js"></script>
+  <script type="text/javascript" src="./js/common/vue.min.js"></script>
+  <script type="text/javascript" src="./js/common/iview.min.js"></script>
+  <script type="text/javascript" src="./js/common/echarts-wordcloud.js"></script>
+  <script type="text/javascript" src="./js/common/echarts-wordcloud.min.js"></script>
+</body>
+
+</html>
